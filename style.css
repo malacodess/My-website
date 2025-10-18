@@ -14,12 +14,66 @@
 
 body {
     background-color: #f4f3f1;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     scroll-behavior: smooth;
 }
 
 /* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: var(--dark-green);
+  color: var(--cream);
+}
+
+.logo {
+    font-size: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 3rem;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-menu li a {
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--dark-green);
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -54,6 +108,12 @@ nav a:hover {
     background-color: var(--mauve);
     box-shadow: 0 8px 15px rgba(232, 155, 181, 0.278);
 }
+nav a.active {
+    color: var(--cream);
+    background-color: var(--mauve);
+    box-shadow: 0 8px 15px rgba(232, 155, 181, 0.278);
+}
+
 
 .section {
     min-height: 100vh;
@@ -134,6 +194,7 @@ nav a:hover {
     flex-wrap: wrap;
     gap: 1rem;
     margin-top: 2.5rem;
+    justify-content: center;
 }
 
 .skill-tag {
@@ -322,12 +383,19 @@ textarea {
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 1rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    font-size: 0.9rem;
-    white-space: nowrap;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    font-size: 1rem;
+    min-width: 210px;   /* makes it more rectangular */
+    max-width: 400px;   /* optional: stops it from getting too wide */
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    line-height: 1.4;
 }
+
+
 
 .buddy:hover + .buddy-msg {
     display: block;
